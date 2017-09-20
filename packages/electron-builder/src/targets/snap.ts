@@ -114,6 +114,8 @@ export default class SnapTarget extends Target {
       snap.parts.extra = {
         plugin: "dump",
         source: isUseDocker ? `/out/${path.basename(stageDir)}/${path.basename(extraSnapSourceDir)}` : extraSnapSourceDir
+        prepare: |
+        sed -i 's|Icon=brave|Icon=/usr/share/pixmaps/brave\.png|g' usr/share/applications/brave.desktop
       }
     }
 
